@@ -1,5 +1,7 @@
 <?php
-   require_once "../config/connect.php";
+
+    require_once "../config/connect.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +31,11 @@
     <table class="main__table">
     
         <tr>
-            <th>DriverID</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Address</th>
-            <th>Date</th>
+            <th><a href="" class="main__table-link">DriverID</a></th>
+            <th><a href="" class="main__table-link">Name</a></th>
+            <th><a href="" class="main__table-link">City</a></th>
+            <th><a href="" class="main__table-link">Address</a></th>
+            <th><a href="" class="main__table-link">Date</a></th>
         </tr>
 
         <?php
@@ -58,7 +60,12 @@
         ?>
     </table>
 
-    <form class="form form__position-drivers" action="../phpHandler/create.php" method="POST">
+    <form class="form form__add form__position-drivers" action="../phpHandler/create.php" method="POST" data-form="delete">
+
+        <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="delete">Delete</a>
+            <a class="form__links-item" href="#" data-filter="update">Update</a>
+        </div>
             
             <label class="form__label" for="driverId">DriverID</label>
             <input class="form__input" type="text" name="driverId" id="driverId" placeholder="DriverID">
@@ -75,8 +82,47 @@
             <label class="form__label" for="date">Date</label>
             <input class="form__input" type="text" name="date" id="date" placeholder="Date">
 
-            <button type="submit" class="form__btn header__nav-link">Add new car</button>
+            <button type="submit" class="form__btn header__nav-link">Add driver</button>
     </form>
+
+    <form class="form form__delete form__position-drivers" action="../phpHandler/delete.php" method="POST" style="display: none;" data-form="add">
+
+<div class="form__links">
+    <a class="form__links-item" href="#" data-filter="add">Add</a>
+    <a class="form__links-item" href="#" data-filter="update">Update</a>
+</div>
+            
+            <label class="form__label" for="driverId">DriverID</label>
+            <input class="form__input" type="text" name="driverId" id="driverId" placeholder="DriverID">
+
+            <button type="submit" class="form__btn header__nav-link">Delete driver</button>
+    </form>
+
+    <form class="form form__update form__position-drivers" action="../phpHandler/update.php" method="POST" style="display: none;" data-form="update">
+
+        <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="add">Add</a>
+            <a class="form__links-item" href="#" data-filter="delete">Delete</a>
+        </div>
+            
+            <label class="form__label" for="driverId">DriverID</label>
+            <input class="form__input" type="text" name="driverId" id="driverId" placeholder="DriverID">
+
+            <label class="form__label" for="name">Name</label>
+            <input class="form__input" type="text" name="driverName" id="name" placeholder="Name">
+
+            <label class="form__label" for="city">City</label>
+            <input class="form__input" type="text" name="city" id="city" placeholder="City">
+
+            <label class="form__label" for="address">Address</label>
+            <input class="form__input" type="text" name="address" id="address" placeholder="Address">
+
+            <label class="form__label" for="date">Date</label>
+            <input class="form__input" type="text" name="date" id="date" placeholder="Date">
+
+            <button type="submit" class="form__btn header__nav-link">Update driver</button>
+    </form>
+    
 
     <script src="../js/app.js"></script>
    

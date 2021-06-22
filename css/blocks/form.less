@@ -1,5 +1,30 @@
 //main: ../style.less
 
+.form__links {
+    display: flex;
+    justify-content: space-between;
+
+    &-item {
+        text-transform: uppercase;
+        text-decoration: none;
+        
+        font-size: 1.2rem;
+        font-weight: 500;
+
+        margin: 0.8rem;
+        
+        color: @black;
+
+        border-radius: 20px;
+
+        transition: all .3s ease;
+
+        &:hover {
+            color: @red;
+        }
+    }
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -25,47 +50,46 @@
         left: 10%;
         top: 21%;
     }
-}
 
-.form__label {
-    margin-bottom: 0.5rem;
-}
-
-.form__input {
-    display: block; // Чтобы растянуть input и textarea, можно и без него.
-    width: 100%;
-
-    border: 1px solid fade(@gray, 30%);
-    border-radius: 27px;
-
-    padding: 1.26rem;
-
-    transition: all .3s ease;
-
-    font-family: inherit; // Так как у input шрифты по умолчанию заданы, а font-family: Monzerat; не действует на них, меняем на наши шрифты путем наследование от родителей.
-
-    font-size: 0.8rem;
-    font-weight: 400;
-    line-height: 1.2rem;
-    color: @black;
-
-    margin-bottom: 1rem;
-
-    &:last-of-type {
-        margin-bottom: 1rem;
+    &__label {
+        margin-bottom: 0.5rem;
     }
 
-    &:focus {
-        outline: none;
-    }
+    &__input {
+        display: block; // Чтобы растянуть input и textarea, можно и без него.
+        width: 100%;
     
-    &:hover {
-        border: 1px solid fade(@black, 70%);
+        border: 1px solid fade(@gray, 30%);
+        border-radius: 27px;
+    
+        padding: 1.26rem;
+    
+        transition: all .3s ease;
+    
+        font-family: inherit; // Так как у input шрифты по умолчанию заданы, а font-family: Monzerat; не действует на них, меняем на наши шрифты путем наследование от родителей.
+    
+        font-size: 0.8rem;
+        font-weight: 400;
+        line-height: 1.2rem;
+        color: @black;
+    
+        margin-bottom: 1rem;
+    
+        &:last-of-type {
+            margin-bottom: 1rem;
+        }
+    
+        &:focus {
+            outline: none;
+        }
+        
+        &:hover {
+            border: 1px solid fade(@black, 70%);
+        }
     }
 
-}
-
-.form__btn {
-    background: none;
-    cursor: pointer;
-}
+        &__btn {
+            background: none;
+        cursor: pointer;
+        }
+    }

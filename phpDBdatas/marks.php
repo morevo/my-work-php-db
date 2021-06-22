@@ -1,5 +1,7 @@
 <?php
-   require_once "../config/connect.php";
+
+    require_once "../config/connect.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,6 @@
 
         <?php
             $marks = mysqli_query($connect, "SELECT * FROM `Marks` "); // Got Object with values (keys,values)
-
             $marks = mysqli_fetch_all($marks); // replace Object to array
 
             // print_r($marks); // test..
@@ -52,7 +53,12 @@
         ?>
     </table>
 
-    <form class="form form__position-marks" action="../phpHandler/create.php" method="POST">
+    <form class="form form__add form__position-marks" action="../phpHandler/create.php" method="POST" data-form="delete">
+
+    <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="delete">Delete</a>
+            <a class="form__links-item" href="#" data-filter="update">Update</a>
+        </div>
             
             <label class="form__label" for="markId">MarkID</label>
             <input class="form__input" type="text" name="markId" id="markId" placeholder="MarkId">
@@ -60,7 +66,36 @@
             <label class="form__label" for="name">Name</label>
             <input class="form__input" type="text" name="markName" id="name" placeholder="Name">
 
-            <button type="submit" class="form__btn header__nav-link">Add new mark</button>
+            <button type="submit" class="form__btn header__nav-link">Add mark</button>
+    </form>
+
+    <form class="form form__delete form__position-marks" action="../phpHandler/delete.php" style="display: none;" method="POST" data-form="add">
+
+    <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="add">Add</a>
+            <a class="form__links-item" href="#" data-filter="update">Update</a>
+        </div>
+            
+            <label class="form__label" for="markId">MarkID</label>
+            <input class="form__input" type="text" name="markId" id="markId" placeholder="MarkId">
+
+            <button type="submit" class="form__btn header__nav-link">Delete mark</button>
+    </form>
+
+    <form class="form form__update form__position-marks" action="../phpHandler/update.php" method="POST" style="display: none;" data-form="update">
+
+    <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="add">Add</a>
+            <a class="form__links-item" href="#" data-filter="delete">Delete</a>
+        </div>
+            
+            <label class="form__label" for="markId">MarkID</label>
+            <input class="form__input" type="text" name="markId" id="markId" placeholder="MarkId">
+
+            <label class="form__label" for="name">Name</label>
+            <input class="form__input" type="text" name="markName" id="name" placeholder="Name">
+
+            <button type="submit" class="form__btn header__nav-link">Update mark</button>
     </form>
 
     <script src="../js/app.js"></script>

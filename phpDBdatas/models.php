@@ -1,5 +1,7 @@
 <?php
-   require_once "../config/connect.php";
+
+    require_once "../config/connect.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@
    <title>Models</title>
 </head>
 <body style="display: none;">
+
 <header class="header">
 
         <nav class="header__nav">
@@ -25,7 +28,6 @@
 
 </header>
     
-
     <table class="main__table">
     
         <tr>
@@ -52,7 +54,12 @@
         ?>
     </table>
 
-    <form class="form form__position-models" action="../phpHandler/create.php" method="POST">
+    <form class="form form__add form__position-models" action="../phpHandler/create.php" method="POST" data-form="delete">
+
+        <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="delete">Delete</a>
+            <a class="form__links-item" href="#" data-filter="update">Update</a>
+        </div>
             
             <label class="form__label" for="modelId">ModelID</label>
             <input class="form__input" type="text" name="modelId" id="modelId" placeholder="ModelID">
@@ -60,7 +67,37 @@
             <label class="form__label" for="name">Name</label>
             <input class="form__input" type="text" name="modelsName" id="name" placeholder="Name">
 
-            <button type="submit" class="form__btn header__nav-link">Add new model</button>
+            <button type="submit" class="form__btn header__nav-link">Add model</button>
+
+    </form>
+
+    <form class="form form__delete form__position-models" action="../phpHandler/delete.php" method="POST" style="display: none;" data-form="add">
+
+        <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="add">Add</a>
+            <a class="form__links-item" href="#" data-filter="update">Update</a>
+        </div>
+            
+            <label class="form__label" for="modelId">ModelID</label>
+            <input class="form__input" type="text" name="modelId" id="modelId" placeholder="ModelID">
+
+            <button type="submit" class="form__btn header__nav-link">Delete model</button>
+    </form>
+
+    <form class="form form__update form__position-models" action="../phpHandler/update.php" method="POST" style="display: none;" data-form="update">
+
+        <div class="form__links">
+            <a class="form__links-item" href="#" data-filter="add">Add</a>
+            <a class="form__links-item" href="#" data-filter="delete">Delete</a>
+        </div>
+            
+            <label class="form__label" for="modelId">ModelID</label>
+            <input class="form__input" type="text" name="modelId" id="modelId" placeholder="ModelID">
+
+            <label class="form__label" for="name">Name</label>
+            <input class="form__input" type="text" name="modelsName" id="name" placeholder="Name">
+
+            <button type="submit" class="form__btn header__nav-link">Update model</button>
     </form>
 
     <script src="../js/app.js"></script>
